@@ -1,0 +1,40 @@
+.swipeButtons{
+      position: fixed;
+      bottom: 10vh;
+      display: flex;
+      width: 100%;
+      justify-content: space-evenly;
+}
+
+/*  The ".MuiIconButton-root" class is one of the default classes applied to the IconButton component in Material UI. This class is used to target the Iconbutton component */
+
+.swipeButtons .MuiIconButton-root{
+      background-color: white;
+      box-shadow: 0px 10px 53px 0px rgb(0,0,0,0.3) !important;
+}
+
+.swipeButtons_repeat{
+      padding: 3vw;
+      color: #f5b748 !important;
+}
+
+.swipeButtons_left{
+      padding: 3vw;
+      color: #ce38b0 !important;
+}
+
+.swipeButtons_star{
+      padding: 3vw;
+      color: #3fd0ba !important;
+}
+
+.swipeButtons_right{
+      padding: 3vw;
+      color: #47baa6 !important;
+}
+
+.swipeButtons_lightning {
+      padding: 3vw;
+      color: #7420b9 !important;
+}
+
