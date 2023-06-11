@@ -54,24 +54,7 @@ app.get("/",(req,res)=>{
 
 app.post("/tinder/cards", (req,res)=>{
       const dbCard = req.body;
-      // create() is used to create a new docoument. It will take a object here(dbcard), adn its data get stored in that newly created document. This object should have all teh properties specified in the collection schema.
-
-      // second argument to it is callback, if error is occured, err object will be passed otherwise data will be passed.
-
-      // during the creation of document, if err is not null or undefined, it means some error had occured and that will be passed to the ffirst argument of teh callback.
-
-      // if err is null or undefined, it means document successfuly created and passed to the second argument of callback.
-
-      // Card.create(dbCard,(err,data)=>{
-      //       if(err){
-      //             res.status(500).send(err);
-      //             // 500 shows internal server error
-      //       }
-      //       else{
-      //             res.status(201).send(data);
-      //             // everything is fine and we send the data
-      //       }
-      // })
+      // create() is used to create a new docoument. It will take a object here(dbcard), and its data get stored in that newly created document. This object should have all the properties specified in the collection schema.
 
       Card.create(dbCard)
       .then((data)=>{
@@ -83,33 +66,12 @@ app.post("/tinder/cards", (req,res)=>{
 
 })
 
-// just like find() method, create also do not accepts callback. So change it to promise.
-
-
-
-// post() is an uploading method.
-
 // find() methods is used to retrieve document from the mongoDB collection.
 
-// find() also takes an object as a first arg which act as query. see below:
-// find({name:"mskn"},callback)
 
-// Above syntax is not used after the v6+ versions of mongo.
-
-// now, find method returns a Query object
+// find method returns a Query object
 
 app.get("/tinder/cards", (req,res)=>{
-      
-      // Card.find({},(err,data)=>{
-      //   // The data parameter, or commonly named result, holds the retrieved data from the query. This will typically be an array of documents matching the specified conditions. You can access and work with this data within the callback function.
-      //   if (err) {
-      //     res.status(500).send(err);
-      //   } else {
-      //     res.status(200).send(data);
-      //   }
-      // });
-      
-      // Above syntax of find() method is outdated.
 
       Card.find({}).then((result)=>{
             res.status(200).send(result);
@@ -118,9 +80,6 @@ app.get("/tinder/cards", (req,res)=>{
             res.status(500).send(error);
       })
 });
-
-
-// learn about POSTMAN API more.
 
 // Postman API:
       // It is a tool for developing and testing API. with this, we can create, manage and execute API request making it easier to develop and test.
@@ -145,8 +104,4 @@ mongoose.connect(connection_url, {
 })
 // connecting mongoose library with mongoDb
 
-// Now make database schema in other file. it is dbCards.js file.
-
-
-// You can notice that every time when you run your server, you get error that IP address is not allowed to access the database even if you had added the IP last time. This is so bcoz application hosted on a cloud service or platform, IP address of application server changes dynamically.
 
